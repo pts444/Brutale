@@ -2,7 +2,7 @@
 <html>
   <head>
     <script>
-    function Checking(pwd) {
+    function Checking() {
     var array = ['﻿123456',
     'password',
     '12345678',
@@ -5757,14 +5757,20 @@
     'santafe',
     'sally1',];
 
-    if(array.includes("password")){
+    var userinput = document.getElementById("Password").value;
+
+    if(array.includes(userinput)){
       console.log("FUCK YES")
+      document.getElementById("Power").innerHTML = "The password was found in the most common passwords"
     }
-    let line_no = 0;
-    var userinput = psw;
+    if(names.includes(userinput)){
+      console.log("Name!")
+      document.getElementById("Power").innerHTML = "The password contains a name, making it easier to be guessed"
+    }
+
     }
     </script>
-    <title>Simple login form</title>
+    <title>Brutale</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <style>
       html, body {
@@ -5815,9 +5821,9 @@
       <h1>Brutale password checker</h1>
       <div class="container">
         <label for="psw"><strong>Password</strong></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
+        <input id="Password" type="password" placeholder="Enter Password" name="psw" required>
       </div>
-      <button onclick="Checking(psw)" type="submit">Submit</button>
+      <button type="button" onclick="Checking()">Submit</button>
       </div>
       <h1 id="Power">Is the password safe?</h1>
     </form>
